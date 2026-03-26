@@ -1,3 +1,138 @@
-h1 {
-    color: "red";
-}
+:root {
+    --sidebar-width: 320px;
+    --header-height: 64px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background: #f8f9fb;
+  }
+
+  .topbar {
+    height: var(--header-height);
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .sidebar-desktop {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    top: var(--header-height);
+    overflow-y: auto;
+    background: #fff;
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .content-area {
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  .section-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    scroll-margin-top: 84px;
+  }
+
+  .hero-card {
+    background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .toc-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6c757d;
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-nav .nav-link {
+    color: #343a40;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.65rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.95rem;
+  }
+
+  .sidebar-nav .nav-link:hover {
+    background: #f1f3f5;
+  }
+
+  .sidebar-nav .nav-link.active {
+    background: #0d6efd;
+    color: white;
+    font-weight: 600;
+  }
+
+  .sidebar-section-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0.55rem 0.65rem;
+    border-radius: 0.5rem;
+    color: #212529;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .sidebar-section-toggle:hover {
+    background: #f1f3f5;
+  }
+
+  .sidebar-subnav {
+    padding-left: 0.75rem;
+    border-left: 2px solid #e9ecef;
+    margin-left: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .badge-soft {
+    background: #eef2ff;
+    color: #3b5bdb;
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .mini-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .subject-chip {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: #f1f3f5;
+    font-size: 0.85rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.35rem;
+  }
+
+  @media (max-width: 991.98px) {
+    .content-wrap {
+      margin-left: 0 !important;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .content-wrap {
+      margin-left: var(--sidebar-width);
+    }
+  }
