@@ -1,582 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lernportal – Mathematik, Physik, Chemie</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-</head>
-<body data-bs-spy="scroll" data-bs-target="#tocNav" data-bs-smooth-scroll="true" tabindex="0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Demo</title>
 
-    <!-- TOPBAR -->
-    <header class="topbar sticky-top d-flex align-items-center px-3 px-lg-4">
-      <button class="btn btn-outline-primary d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileToc" aria-controls="mobileToc">
-        Menü
-      </button>
-  
-      <div>
-        <div class="fw-bold">Lernportal</div>
-        <h1>hallo</h1>
-        <div class="text-muted small">Mathematik · Physik · Chemie · Sek I / Unterstufe</div>
-      </div>
-    </header>
-  
-    <!-- DESKTOP SIDEBAR -->
-    <aside class="sidebar-desktop position-fixed d-none d-lg-block p-3">
-      <div class="toc-title">Inhaltsverzeichnis</div>
-      <nav id="tocNav" class="sidebar-nav nav flex-column">
-  
-        <!-- Einstieg -->
-        <button class="sidebar-section-toggle" data-bs-toggle="collapse" data-bs-target="#toc-einstieg" aria-expanded="true">
-          <span>Start & Orientierung</span>
-          <span>▾</span>
-        </button>
-        <div class="collapse show sidebar-subnav" id="toc-einstieg">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="#vision">Vision der Lernseite</a>
-            <a class="nav-link" href="#lernweg">Didaktischer Lernweg</a>
-            <a class="nav-link" href="#klassenueberblick">Klassen 5–10 Überblick</a>
-          </nav>
-        </div>
-  
-        <!-- Mathematik -->
-        <button class="sidebar-section-toggle" data-bs-toggle="collapse" data-bs-target="#toc-mathe" aria-expanded="true">
-          <span>Mathematik</span>
-          <span>▾</span>
-        </button>
-        <div class="collapse show sidebar-subnav" id="toc-mathe">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="#mathe-5-6">Klasse 5–6 Grundlagen</a>
-            <a class="nav-link" href="#geo-grundlagen">Geometrie Grundlagen</a>
-            <a class="nav-link" href="#geo-konstruktion">Konstruieren mit Zirkel & Geodreieck</a>
-            <a class="nav-link" href="#flaechen-koerper">Flächen & Körper</a>
-            <a class="nav-link" href="#mathe-7-8">Klasse 7–8 Aufbau</a>
-            <a class="nav-link" href="#prozent-daten">Prozent, Zuordnung, Daten</a>
-            <a class="nav-link" href="#terme-gleichungen">Terme & Gleichungen</a>
-            <a class="nav-link" href="#mathe-9-10">Klasse 9–10 Vertiefung</a>
-            <a class="nav-link" href="#funktionen">Lineare & quadratische Funktionen</a>
-            <a class="nav-link" href="#satz-des-pythagoras">Satz des Pythagoras</a>
-            <a class="nav-link" href="#trigonometrie">Trigonometrie</a>
-            <a class="nav-link" href="#analytische-geometrie">Koordinaten & analytische Geometrie</a>
-            <a class="nav-link" href="#wahrscheinlichkeit">Wahrscheinlichkeit</a>
-          </nav>
-        </div>
-  
-        <!-- Physik -->
-        <button class="sidebar-section-toggle" data-bs-toggle="collapse" data-bs-target="#toc-physik" aria-expanded="false">
-          <span>Physik</span>
-          <span>▾</span>
-        </button>
-        <div class="collapse sidebar-subnav" id="toc-physik">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="#physik-einstieg">Physik Einstieg</a>
-            <a class="nav-link" href="#bewegung-kraft">Bewegung, Kraft, Hebel</a>
-            <a class="nav-link" href="#energie-arbeit">Energie, Arbeit, Leistung</a>
-            <a class="nav-link" href="#stromkreise">Elektrizität & Stromkreise</a>
-            <a class="nav-link" href="#optik">Optik</a>
-            <a class="nav-link" href="#waerme-druck">Wärme, Druck, Teilchenbild</a>
-          </nav>
-        </div>
-  
-        <!-- Chemie -->
-        <button class="sidebar-section-toggle" data-bs-toggle="collapse" data-bs-target="#toc-chemie" aria-expanded="false">
-          <span>Chemie</span>
-          <span>▾</span>
-        </button>
-        <div class="collapse sidebar-subnav" id="toc-chemie">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="#chemie-einstieg">Chemie Einstieg</a>
-            <a class="nav-link" href="#stoffe-eigenschaften">Stoffe & Eigenschaften</a>
-            <a class="nav-link" href="#gemische-trennung">Gemische & Trennverfahren</a>
-            <a class="nav-link" href="#teilchenmodell">Teilchenmodell</a>
-            <a class="nav-link" href="#reaktionen">Chemische Reaktionen</a>
-            <a class="nav-link" href="#saeuren-basen">Säuren, Basen, pH</a>
-            <a class="nav-link" href="#atombau">Atombau & Periodensystem</a>
-          </nav>
-        </div>
-  
-        <!-- Plattformideen -->
-        <button class="sidebar-section-toggle" data-bs-toggle="collapse" data-bs-target="#toc-plattformen" aria-expanded="false">
-          <span>Plattform-Ideen</span>
-          <span>▾</span>
-        </button>
-        <div class="collapse sidebar-subnav" id="toc-plattformen">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="#web-module">Web-Module</a>
-            <a class="nav-link" href="#desktop-module">Desktop-App</a>
-            <a class="nav-link" href="#mobile-module">Android/QML</a>
-            <a class="nav-link" href="#blender-module">Blender & 3D</a>
-          </nav>
-        </div>
-      </nav>
-    </aside>
-  
-    <!-- MOBILE SIDEBAR -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileToc" aria-labelledby="mobileTocLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="mobileTocLabel">Inhaltsverzeichnis</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Schließen"></button>
-      </div>
-      <div class="offcanvas-body">
-        <nav class="nav flex-column">
-          <a class="nav-link" href="#vision" data-bs-dismiss="offcanvas">Vision</a>
-          <a class="nav-link" href="#lernweg" data-bs-dismiss="offcanvas">Didaktischer Lernweg</a>
-          <a class="nav-link" href="#geo-grundlagen" data-bs-dismiss="offcanvas">Geometrie Grundlagen</a>
-          <a class="nav-link" href="#geo-konstruktion" data-bs-dismiss="offcanvas">Konstruieren</a>
-          <a class="nav-link" href="#trigonometrie" data-bs-dismiss="offcanvas">Trigonometrie</a>
-          <a class="nav-link" href="#bewegung-kraft" data-bs-dismiss="offcanvas">Physik: Kraft & Bewegung</a>
-          <a class="nav-link" href="#stoffe-eigenschaften" data-bs-dismiss="offcanvas">Chemie: Stoffe</a>
-        </nav>
-      </div>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #10131a;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .stage {
+      text-align: center;
+    }
+
+    .title {
+      font-size: 42px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      transform: translateY(80px) scale(0.6);
+      opacity: 0;
+    }
+
+    .c1 { background: #ff6b6b; }
+    .c2 { background: #4ecdc4; }
+    .c3 { background: #ffe66d; color: #222; }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="title">GSAP Mini Demo</div>
+
+    <div class="row">
+      <div class="card c1">1</div>
+      <div class="card c2">2</div>
+      <div class="card c3">3</div>
     </div>
-  
-    <!-- CONTENT -->
-    <main class="content-wrap">
-      <div class="container-fluid content-area px-3 px-md-4 px-xl-5 py-4">
-  
-        <section class="hero-card">
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="badge-soft">Lernen ohne Druck</span>
-            <span class="badge-soft">Sek I / Unterstufe</span>
-            <span class="badge-soft">Mathematik · Physik · Chemie</span>
-          </div>
-          <h1 class="display-6 fw-bold mb-3">Kennen - Können - Meistern</h1>
-          <p class="lead mb-3">
-            anschauliche Grundlagen
-            zu sicherem Verstehen, Üben, Anwenden und selbstständigem Denken
-          </p>
-          <div>
-            <span class="subject-chip">Zirkel</span>
-            <span class="subject-chip">Geodreieck</span>
-            <span class="subject-chip">Geometrie</span>
-            <span class="subject-chip">Trigonometrie</span>
-            <span class="subject-chip">Physik</span>
-          </div>
-        </section>
-  
-        <section id="vision" class="section-card">
-          <h2>Vision der Lernseite</h2>
-          <p>
-            Die Plattform soll Schülerinnen und Schüler ab Klasse 5 stärken, Neugier wecken und
-            fachliche Sicherheit aufbauen. Sie ergänzt den Unterricht, erklärt anschaulich,
-            lässt Dinge ausprobieren und macht Lernen weniger trocken.
-          </p>
-          <ul class="mini-list">
-            <li>verstehen statt nur auswendig lernen</li>
-            <li>selbst ausprobieren statt nur konsumieren</li>
-            <li>schöne Visualisierung statt grauer Textwüste</li>
-            <li>freiwillige Motivation statt Zwang</li>
-          </ul>
-        </section>
-  
-        <section id="lernweg" class="section-card">
-          <h2>Didaktischer Lernweg</h2>
-          <div class="row g-3">
-            <div class="col-md-6 col-xl-3">
-              <div class="p-3 bg-light rounded-4 h-100">
-                <h5>1. Entdecken</h5>
-                <p class="mb-0">Animationen, Beispiele, Alltagssituationen, visuelle Aha-Momente.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <div class="p-3 bg-light rounded-4 h-100">
-                <h5>2. Verstehen</h5>
-                <p class="mb-0">Begriffe sauber erklären, Zusammenhänge sichtbar machen.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <div class="p-3 bg-light rounded-4 h-100">
-                <h5>3. Üben</h5>
-                <p class="mb-0">Interaktive Aufgaben mit Hinweisen, Fehlerhilfen und Zwischenschritten.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-3">
-              <div class="p-3 bg-light rounded-4 h-100">
-                <h5>4. Anwenden</h5>
-                <p class="mb-0">Transferaufgaben, Experimente, Konstruktionen, Modelle.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="klassenueberblick" class="section-card">
-          <h2>Klassen 5–10 Überblick</h2>
-          <p>
-            Die Reihenfolge ist didaktisch gegliedert: erst Grundlagen, dann Muster, dann Formeln,
-            dann Modellieren und Anwenden.
-          </p>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <div class="p-3 border rounded-4 h-100">
-                <h5>Klasse 5–6</h5>
-                <p class="mb-2">Grundbegriffe, Werkzeuge, erste Konstruktionen, Rechnen, Flächen, Körper.</p>
-                <small class="text-muted">Viele visuelle und handlungsnahe Einstiege</small>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="p-3 border rounded-4 h-100">
-                <h5>Klasse 7–8</h5>
-                <p class="mb-2">Zuordnungen, Prozent, Terme, Gleichungen, Symmetrie, Daten.</p>
-                <small class="text-muted">Mehr Struktur, erste Verallgemeinerungen</small>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="p-3 border rounded-4 h-100">
-                <h5>Klasse 9–10</h5>
-                <p class="mb-2">Funktionen, Pythagoras, Trigonometrie, Wahrscheinlichkeiten, Modellierung.</p>
-                <small class="text-muted">Stärkeres mathematisches Denken und Anwenden</small>
-              </div>
-            </div>
-          </div>
-        </section>
-  
-        <section id="mathe-5-6" class="section-card">
-          <h2>Mathematik – Klasse 5–6 Grundlagen</h2>
-          <ul class="mini-list">
-            <li>Natürliche Zahlen, Rechenarten, Überschlagen</li>
-            <li>Brüche und Dezimalzahlen anschaulich verstehen</li>
-            <li>Größen: Länge, Zeit, Masse, Geld</li>
-            <li>Tabellen, einfache Diagramme</li>
-            <li>erste Geometrie: Punkt, Strecke, Gerade, Winkel, Kreis</li>
-          </ul>
-        </section>
-  
-        <section id="geo-grundlagen" class="section-card">
-          <h2>Geometrie Grundlagen</h2>
-          <p class="text-muted">Der ideale Einstieg für Klasse 5/6</p>
-          <div class="row g-3">
-            <div class="col-lg-6">
-              <h5>Begriffe</h5>
-              <ul class="mini-list">
-                <li>Punkt, Strecke, Gerade, Strahl</li>
-                <li>parallel, senkrecht</li>
-                <li>Winkel und Winkelarten</li>
-                <li>Kreis, Mittelpunkt, Radius, Durchmesser</li>
-                <li>Vielecke: Dreieck, Rechteck, Quadrat</li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <h5>Didaktische Ideen</h5>
-              <ul class="mini-list">
-                <li>SVG/Canvas mit verschiebbaren Punkten</li>
-                <li>Winkel live aufziehen und messen</li>
-                <li>Kreis als „gleicher Abstand“ visualisieren</li>
-                <li>Vergleich: sehen, anfassen, konstruieren</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-  
-        <section id="geo-konstruktion" class="section-card">
-          <h2>Konstruieren mit Zirkel & Geodreieck</h2>
-          <p>
-            Hier beginnt der praktische Kern deiner Lernseite: nicht nur Geometrie anschauen,
-            sondern sauber aufbauen.
-          </p>
-          <ul class="mini-list">
-            <li>Strecken messen und übertragen</li>
-            <li>Winkel messen und zeichnen</li>
-            <li>Kreise mit gegebenem Radius konstruieren</li>
-            <li>Mittelsenkrechte konstruieren</li>
-            <li>Winkelhalbierende konstruieren</li>
-            <li>Senkrechte und Parallelen zeichnen</li>
-            <li>Dreiecke nach Vorgaben konstruieren</li>
-          </ul>
-        </section>
-  
-        <section id="flaechen-koerper" class="section-card">
-          <h2>Flächen & Körper</h2>
-          <ul class="mini-list">
-            <li>Umfang und Fläche von Rechteck, Quadrat, Dreieck</li>
-            <li>Einheiten bei Flächen sicher anwenden</li>
-            <li>Quader, Würfel, Prisma, Zylinder</li>
-            <li>Netze von Körpern</li>
-            <li>Volumen anschaulich und rechnerisch</li>
-          </ul>
-        </section>
-  
-        <section id="mathe-7-8" class="section-card">
-          <h2>Mathematik – Klasse 7–8 Aufbau</h2>
-          <ul class="mini-list">
-            <li>negative Zahlen</li>
-            <li>rationale Zahlen</li>
-            <li>Verhältnisse und Proportionen</li>
-            <li>Zuordnungen und erste Funktionen</li>
-            <li>Terme, einfache Gleichungen, Umformen</li>
-            <li>Symmetrie, Kongruenz, Daten & Statistik</li>
-          </ul>
-        </section>
-  
-        <section id="prozent-daten" class="section-card">
-          <h2>Prozent, Zuordnung, Daten</h2>
-          <ul class="mini-list">
-            <li>Prozentbegriff visuell über Flächen und Balken</li>
-            <li>Dreisatz und proportionale Zuordnungen</li>
-            <li>Tabellen, Diagramme, Mittelwerte</li>
-            <li>Anwendungen aus Alltag, Preis, Rabatt, Wachstum</li>
-          </ul>
-        </section>
-  
-        <section id="terme-gleichungen" class="section-card">
-          <h2>Terme & Gleichungen</h2>
-          <ul class="mini-list">
-            <li>Variable als Platzhalter und als veränderliche Größe</li>
-            <li>Terme aufbauen und vereinfachen</li>
-            <li>lineare Gleichungen lösen</li>
-            <li>einfache Formeln umstellen</li>
-            <li>Gleichungen als Balance-Modell visualisieren</li>
-          </ul>
-        </section>
-  
-        <section id="mathe-9-10" class="section-card">
-          <h2>Mathematik – Klasse 9–10 Vertiefung</h2>
-          <ul class="mini-list">
-            <li>lineare und quadratische Zusammenhänge</li>
-            <li>Pythagoras</li>
-            <li>Trigonometrie im rechtwinkligen Dreieck</li>
-            <li>Ähnlichkeit und Maßstab</li>
-            <li>Wahrscheinlichkeit und mehrstufige Experimente</li>
-          </ul>
-        </section>
-  
-        <section id="funktionen" class="section-card">
-          <h2>Lineare & quadratische Funktionen</h2>
-          <ul class="mini-list">
-            <li>Zuordnung, Wertetabelle, Graph</li>
-            <li>Steigung und Achsenabschnitt</li>
-            <li>lineare Modelle im Alltag</li>
-            <li>Parabeln entdecken und deuten</li>
-            <li>Graphen lesen statt nur zeichnen</li>
-          </ul>
-        </section>
-  
-        <section id="satz-des-pythagoras" class="section-card">
-          <h2>Satz des Pythagoras</h2>
-          <p>
-            Der perfekte Brückenschlag zwischen Geometrie, Flächenvorstellung und Rechnen.
-          </p>
-          <ul class="mini-list">
-            <li>rechtwinkliges Dreieck verstehen</li>
-            <li>Quadrate auf den Seiten visualisieren</li>
-            <li>fehlende Seitenlängen berechnen</li>
-            <li>Anwendungen in Raum, Höhe, Abstand</li>
-          </ul>
-        </section>
-  
-        <section id="trigonometrie" class="section-card">
-          <h2>Trigonometrie</h2>
-          <p class="text-muted">Späterer Unterstufenstoff, ideal ab Klasse 9/10</p>
-          <div class="row g-3">
-            <div class="col-lg-6">
-              <h5>Inhalte</h5>
-              <ul class="mini-list">
-                <li>rechtwinklige Dreiecke wiederholen</li>
-                <li>Gegenkathete, Ankathete, Hypotenuse</li>
-                <li>Sinus, Kosinus, Tangens</li>
-                <li>Winkel berechnen</li>
-                <li>Seitenlängen berechnen</li>
-                <li>Höhen- und Entfernungsaufgaben</li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <h5>Visualisierungsideen</h5>
-              <ul class="mini-list">
-                <li>Dreieck interaktiv ziehen, Werte live aktualisieren</li>
-                <li>Einheitskreis als Vorschau auf spätere Oberstufe</li>
-                <li>Steigungsdreieck mit Tangens verknüpfen</li>
-                <li>Blender/Quick3D für Höhenwinkel und Sichtlinien</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-  
-        <section id="analytische-geometrie" class="section-card">
-          <h2>Koordinaten & analytische Geometrie</h2>
-          <ul class="mini-list">
-            <li>Punkte im Koordinatensystem</li>
-            <li>Abstände und Lagebeziehungen</li>
-            <li>Geraden in einfachen Zusammenhängen</li>
-            <li>Verbindung von Geometrie und Funktionen</li>
-          </ul>
-        </section>
-  
-        <section id="wahrscheinlichkeit" class="section-card">
-          <h2>Wahrscheinlichkeit</h2>
-          <ul class="mini-list">
-            <li>Zufallsexperimente</li>
-            <li>absolute und relative Häufigkeit</li>
-            <li>Baumdiagramme</li>
-            <li>Laplace-Experimente</li>
-            <li>mehrstufige Zufallsversuche</li>
-          </ul>
-        </section>
-  
-        <section id="physik-einstieg" class="section-card">
-          <h2>Physik Einstieg</h2>
-          <p>
-            Für die Unterstufe eignen sich alltagsnahe Zugänge: beobachten, messen, experimentieren,
-            erklären.
-          </p>
-        </section>
-  
-        <section id="bewegung-kraft" class="section-card">
-          <h2>Bewegung, Kraft, Hebel</h2>
-          <ul class="mini-list">
-            <li>Geschwindigkeit anschaulich</li>
-            <li>Kräfte im Alltag</li>
-            <li>Gewichtskraft und Masse unterscheiden</li>
-            <li>Hebelgesetz</li>
-            <li>einfache Maschinen</li>
-          </ul>
-        </section>
-  
-        <section id="energie-arbeit" class="section-card">
-          <h2>Energie, Arbeit, Leistung</h2>
-          <ul class="mini-list">
-            <li>Energieformen</li>
-            <li>Energieumwandlung</li>
-            <li>Arbeit als Kraft mal Weg</li>
-            <li>Leistung im Alltag</li>
-          </ul>
-        </section>
-  
-        <section id="stromkreise" class="section-card">
-          <h2>Elektrizität & Stromkreise</h2>
-          <ul class="mini-list">
-            <li>einfacher Stromkreis</li>
-            <li>Leiter und Isolatoren</li>
-            <li>Schalter, Reihen- und Parallelschaltung</li>
-            <li>Spannung, Stromstärke, Widerstand als Grundidee</li>
-          </ul>
-        </section>
-  
-        <section id="optik" class="section-card">
-          <h2>Optik</h2>
-          <ul class="mini-list">
-            <li>Lichtausbreitung</li>
-            <li>Reflexion</li>
-            <li>Brechung als erste Begegnung</li>
-            <li>Linsen und einfache optische Geräte</li>
-          </ul>
-        </section>
-  
-        <section id="waerme-druck" class="section-card">
-          <h2>Wärme, Druck, Teilchenbild</h2>
-          <ul class="mini-list">
-            <li>Temperatur und Wärme unterscheiden</li>
-            <li>Ausdehnung</li>
-            <li>Druck in Gasen und Flüssigkeiten</li>
-            <li>Teilchenmodell als Erklärungshilfe</li>
-          </ul>
-        </section>
-  
-        <section id="chemie-einstieg" class="section-card">
-          <h2>Chemie Einstieg</h2>
-          <p>
-            Chemie sollte in der Lernseite stark beobachtend und experimentnah eingeführt werden:
-            Stoffe erkennen, Eigenschaften vergleichen, Veränderungen deuten.
-          </p>
-        </section>
-  
-        <section id="stoffe-eigenschaften" class="section-card">
-          <h2>Stoffe & Eigenschaften</h2>
-          <ul class="mini-list">
-            <li>Farbe, Dichte, Härte, Löslichkeit</li>
-            <li>Metalle, Nichtmetalle, Kunststoffe</li>
-            <li>Alltagsstoffe bewusst wahrnehmen</li>
-          </ul>
-        </section>
-  
-        <section id="gemische-trennung" class="section-card">
-          <h2>Gemische & Trennverfahren</h2>
-          <ul class="mini-list">
-            <li>Lösungen, Suspensionen, Emulsionen</li>
-            <li>Filtrieren, Eindampfen, Destillieren</li>
-            <li>Warum Trennverfahren funktionieren</li>
-          </ul>
-        </section>
-  
-        <section id="teilchenmodell" class="section-card">
-          <h2>Teilchenmodell</h2>
-          <ul class="mini-list">
-            <li>Stoffe aus Teilchen denken</li>
-            <li>Aggregatzustände</li>
-            <li>Teilchenbewegung und Temperatur</li>
-          </ul>
-        </section>
-  
-        <section id="reaktionen" class="section-card">
-          <h2>Chemische Reaktionen</h2>
-          <ul class="mini-list">
-            <li>Stoffumwandlung vs. physikalischer Vorgang</li>
-            <li>Verbrennung</li>
-            <li>Oxidation als Grundidee</li>
-            <li>Reaktionsschema</li>
-          </ul>
-        </section>
-  
-        <section id="saeuren-basen" class="section-card">
-          <h2>Säuren, Basen, pH</h2>
-          <ul class="mini-list">
-            <li>Indikatoren</li>
-            <li>saure, neutrale, alkalische Lösungen</li>
-            <li>Alltagsbeispiele</li>
-          </ul>
-        </section>
-  
-        <section id="atombau" class="section-card">
-          <h2>Atombau & Periodensystem</h2>
-          <ul class="mini-list">
-            <li>Elemente als Grundstoffe</li>
-            <li>einfaches Atommodell</li>
-            <li>Periodensystem lesen lernen</li>
-          </ul>
-        </section>
-  
-        <section id="web-module" class="section-card">
-          <h2>Web-Module</h2>
-          <ul class="mini-list">
-            <li>interaktive Konstruktionen mit SVG oder Canvas</li>
-            <li>Scroll-Animationen für Begriffsaufbau</li>
-            <li>kleine Quiz- und Soforthilfe-Module</li>
-            <li>frei zugängliche Grundlagenlektionen</li>
-          </ul>
-        </section>
-  
-        <section id="desktop-module" class="section-card">
-          <h2>Desktop-App</h2>
-          <ul class="mini-list">
-            <li>komplette Kursstruktur</li>
-            <li>lokaler Fortschritt und Offline-Nutzung</li>
-            <li>Zeichen- und Konstruktionswerkzeuge</li>
-            <li>Lehrer-/Tutoransicht</li>
-          </ul>
-        </section>
-  
-        <section id="mobile-module" class="section-card">
-          <h2>Android / QML / Quick3D</h2>
-          <ul class="mini-list">
-            <li>kurze Lerneinheiten für unterwegs</li>
-            <li>3D-Körper drehen und verstehen</li>
-            <li>Winkeltrainer mit Touch</li>
-            <li>Mini-Challenges statt langer Lektionen</li>
-          </ul>
-        </section>
-  
-        <section id="blender-module" class="section-card">
-          <h2>Blender & 3D</h2>
-          <ul class="mini-list">
-            <li>Erkläranimationen für Kreis, Winkel, Dreieck, Körper</li>
-            <li>Exports als Video, PNG-Sequenz oder glTF</li>
-            <li>hochwertige Visualisierung für Aha-Momente</li>
-          </ul>
-        </section>
-  
-      </div>
-    </main>
-  
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-  </body>
-  </html>
+
+    <button class="btn" id="replayBtn">Nochmal abfeuern</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script>
+    const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "back.out(1.7)" } });
+
+    tl.to(".title", {
+      opacity: 1,
+      y: 0,
+      duration: 0.8
+    })
+    .to(".c1", { opacity: 1, y: 0, scale: 1, rotate: -8 }, "-=0.2")
+    .to(".c2", { opacity: 1, y: 0, scale: 1, rotate: 0 }, "-=0.5")
+    .to(".c3", { opacity: 1, y: 0, scale: 1, rotate: 8 }, "-=0.5")
+    .to(".card", {
+      y: -10,
+      repeat: 1,
+      yoyo: true,
+      stagger: 0.08,
+      duration: 0.22
+    });
+
+    document.getElementById("replayBtn").addEventListener("click", () => {
+      tl.restart();
+    });
+  </script>
+</body>
+</html>
