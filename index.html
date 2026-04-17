@@ -16,14 +16,19 @@
     <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
   </a-scene>
 
-  <script>
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-      .then(stream => {
-        document.querySelector('#cam').srcObject = stream;
-      })
-      .catch(err => {
-        console.error("Kamera Fehler:", err);
-      });
-  </script>
+<script>
+navigator.mediaDevices.getUserMedia({
+  video: {
+    facingMode: { exact: "environment" }
+  },
+  audio: false
+})
+.then(stream => {
+  document.querySelector('#cam').srcObject = stream;
+})
+.catch(err => {
+  console.error("Kamera Fehler:", err);
+});
+</script>
 </body>
 </html>
