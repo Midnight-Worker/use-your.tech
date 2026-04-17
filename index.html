@@ -17,7 +17,7 @@
   </a-scene>
 
   <script>
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
       .then(stream => {
         document.querySelector('#cam').srcObject = stream;
       })
